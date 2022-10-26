@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    ">
+
+  <bean id="firstClassicMP3" class="org.classic.FirstClassicMP3"> </bean>
+  <bean id="secondClassicMP3" class="org.classic.SecondClassicMP3"> </bean>
+  <bean id="firstRockMP3" class="org.rock.FirstRockMP3"> </bean>
+  <bean id="secondRockMP3" class="org.rock.SecondRockMP3"> </bean>
+
+  <bean id="rockMusicPlayer" class="org.rock.RockMusicPlayer">
+    <property name="firstRockMP3">
+      <ref bean="firstRockMP3"/>
+    </property>
+    <property name="secondRockMP3">
+      <ref bean="secondRockMP3"/>
+    </property>
+  </bean>
+
+  <bean id="classicMusicPlayer" class="org.classic.ClassicMusicPlayer">
+    <property name="firstClassicMP3">
+      <ref bean="firstClassicMP3"/>
+    </property>
+    <property name="secondClassicMP3">
+      <ref bean="secondClassicMP3"/>
+    </property>
+  </bean>
+
+  <context:annotation-config/>
+</beans>
