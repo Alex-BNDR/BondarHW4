@@ -6,9 +6,8 @@ import org.xmlConfiguration.service.ClassicService;
 
 import java.util.List;
 
-@Service
 public class ClassicServiceImpl implements ClassicService {
-    private List<MusicTrack> classicTracks;
+    private final List<MusicTrack> classicTracks;
 
     public ClassicServiceImpl(List<MusicTrack> classicTracks) {
         this.classicTracks = classicTracks;
@@ -16,8 +15,8 @@ public class ClassicServiceImpl implements ClassicService {
 
     @Override
     public void playClassicMusic() {
-        for (MusicTrack classicalTrack : classicTracks) {
-            System.out.println(classicalTrack);
+        for (MusicTrack classicTrack: classicTracks) {
+            System.out.println(classicTrack);
         }
     }
 }

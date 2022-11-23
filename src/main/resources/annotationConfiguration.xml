@@ -10,8 +10,9 @@
     http://www.springframework.org/schema/context/spring-context.xsd
     http://www.springframework.org/schema/aop
     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-    https://www.springframework.org/schema/util/spring-util.xsd
-    ">
+    http://www.springframework.org/schema/util  http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+  <context:component-scan base-package="org.xmlConfiguration"/>
 
   <bean id="classic1" class="org.entity.MusicTrack">
     <property name="trackName" value="Nucturn 2"/>
@@ -48,11 +49,13 @@
     <constructor-arg ref="classicTracks"/>
   </bean>
 
-  <bean id="rockService" class="org.annotationConfig.service.impl.RockServiceImpl">
+  <bean id="rockService"
+        class="org.annotationConfig.service.impl.RockServiceImpl">
     <constructor-arg ref="rockTracks"/>
   </bean>
 
-  <bean id="musicPlayerServiceBean" class="org.annotationConfig.service.impl.MusicPlayerServiceImpl">
+  <bean id="musicPlayerServiceBean"
+        class="org.annotationConfig.service.impl.MusicPlayerServiceImpl">
     <constructor-arg>
       <list>
         <ref bean="classicService"/>
