@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+    https://www.springframework.org/schema/util/spring-util.xsd
+    ">
+
+  <bean id="classic1" class="org.entity.MusicTrack">
+    <property name="trackName" value="Nucturn 2"/>
+    <property name="artist" value="Shopen"/>
+  </bean>
+
+  <bean id="classic2" class="org.entity.MusicTrack">
+    <property name="trackName" value="Симфония номер 5"/>
+    <property name="artist" value="Бетховен"/>
+  </bean>
+
+  <bean id="rock1" class="org.entity.MusicTrack">
+    <property name="trackName" value="Nothing else matters"/>
+    <property name="artist" value="Metallica"/>
+  </bean>
+
+  <bean id="rock2" class="org.entity.MusicTrack">
+    <property name="trackName" value="Wind of change"/>
+    <property name="artist" value="Scorpions"/>
+  </bean>
+
+  <util:list id="classicTracks" value-type="org.entity.MusicTrack">
+    <ref bean="classic1"/>
+    <ref bean="classic2"/>
+  </util:list>
+
+  <util:list id="rockTracks" value-type="org.entity.MusicTrack">
+    <ref bean="rock1"/>
+    <ref bean="rock2"/>
+  </util:list>
+
+  <bean id="classicService"
+        class="org.annotationConfig.service.impl.ClassicServiceImpl">
+    <constructor-arg ref="classicTracks"/>
+  </bean>
+
+  <bean id="rockService" class="org.annotationConfig.service.impl.RockServiceImpl">
+    <constructor-arg ref="rockTracks"/>
+  </bean>
+
+  <bean id="musicPlayerServiceBean" class="org.annotationConfig.service.impl.MusicPlayerServiceImpl">
+    <constructor-arg>
+      <list>
+        <ref bean="classicService"/>
+        <ref bean="rockService"/>
+      </list>
+    </constructor-arg>
+  </bean>
+</beans>
