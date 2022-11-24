@@ -11,9 +11,7 @@ public class MusicPlayerServiceImpl implements MusicPlayerService {
     private final ClassicService classicService;
     private final RockService rockService;
 
-    @Autowired
-    public MusicPlayerServiceImpl(ClassicService classicService,
-                                  RockService rockService) {
+    public MusicPlayerServiceImpl(ClassicService classicService, RockService rockService) {
         this.classicService = classicService;
         this.rockService = rockService;
     }
