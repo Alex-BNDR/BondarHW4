@@ -46,17 +46,17 @@
   </util:list>
 
   <bean id="classicService"
-        class="org.annotationConfig.service.impl.ClassicServiceImpl">
+        class="org.xmlConfiguration.service.impl.ClassicServiceImpl">
     <constructor-arg ref="classicTracks"/>
   </bean>
 
   <bean id="rockService"
-        class="org.annotationConfig.service.impl.RockServiceImpl">
+        class="org.xmlConfiguration.service.impl.RockServiceImpl">
     <constructor-arg ref="rockTracks"/>
   </bean>
 
   <bean id="musicPlayerServiceBean"
-        class="org.annotationConfig.service.impl.MusicPlayerServiceImpl">
+        class="org.xmlConfiguration.service.impl.MusicPlayerServiceImpl">
     <constructor-arg>
       <list>
         <ref bean="classicService"/>
