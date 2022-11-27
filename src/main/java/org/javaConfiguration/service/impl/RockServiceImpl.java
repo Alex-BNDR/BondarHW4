@@ -2,11 +2,11 @@ package org.javaConfiguration.service.impl;
 
 import org.entity.MusicTrack;
 import org.javaConfiguration.service.RockService;
-import org.springframework.stereotype.Service;
+
 
 import java.util.List;
 
-@Service
+
 public class RockServiceImpl implements RockService {
     private List<MusicTrack> rockTracks;
 
