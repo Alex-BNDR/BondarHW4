@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 @Configuration
-@ComponentScan(basePackages = "com.naidiuk.java_configuration")
+@ComponentScan(basePackages = "org.javaConfiguration")
 public class MainConfig {
     @Bean
     public MusicTrack classic1() {
